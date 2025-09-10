@@ -22,7 +22,7 @@ const ProSection = () => {
           className="flex justify-between"
           items={[
             {
-              image: "/src/assets/Screenshot 2025-09-10 195336.png",
+              image: "/Screenshot 2025-09-10 195336.png",
               title: "Sarah Johnson",
               subtitle: "Frontend Developer",
               handle: "@sarahjohnson",
