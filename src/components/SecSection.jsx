@@ -86,7 +86,14 @@ const SecSection = () => {
         >
           <div className="text-center">
             <p>
-              <CountUp to={20} from={0} direction="up" duration={1} className="text-3xl" /><span style={{ color: "rgba(0, 193, 255, 1)" }}>+</span>
+              <CountUp
+                to={20}
+                from={0}
+                direction="up"
+                duration={1}
+                className="text-3xl"
+              />
+              <span style={{ color: "rgba(0, 193, 255, 1)" }}>+</span>
             </p>
             <p>Projects Finished</p>
           </div>

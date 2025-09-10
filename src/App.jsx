@@ -5,6 +5,8 @@ import HeroSection from "./components/HeroSection";
 import SpotlightCard from "./components/SpotlightCard";
 import SecSection from "./components/SecSection";
 import ProSection from "./components/ProSection";
+import ConSection from "./components/ConSection";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
   return (
@@ -113,6 +115,16 @@ function App() {
       >
         <ProSection />
       </motion.div>
+      <motion.div
+        id="consection"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <ConSection />
+      </motion.div>
+      <BackToTopButton />
     </div>
   );
 }
