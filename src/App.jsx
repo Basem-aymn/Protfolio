@@ -14,7 +14,7 @@ function App() {
       <div>
         <PillNav
           items={[
-          { label: "Home", href: "#hero" },
+            { label: "Home", href: "#hero" },
             { label: "About", href: "/about" },
             { label: "Skills", href: "#skills" },
             { label: "Contact", href: "/contact" },
@@ -38,9 +38,7 @@ function App() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: true }}
-      >
-       
-      </motion.div>
+      ></motion.div>
       <motion.section
         id="skills"
         className="w-[100%] h-auto mt-90 md:mt-10"
@@ -49,7 +47,10 @@ function App() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h1 className="text-center text-3xl text-white mb-4 custom-class" style={{ fontFamily: '"Fugaz One", sans-serif' }}>
+        <h1
+          className="text-center text-3xl text-white mb-4 custom-class"
+          style={{ fontFamily: '"Fugaz One", sans-serif' }}
+        >
           Skills
         </h1>
 
@@ -83,7 +84,13 @@ function App() {
               desc: "Working with RESTful and GraphQL APIs",
             },
           ].map((skill, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }} viewport={{ once: true }}>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }}
+              viewport={{ once: true }}
+            >
               <SpotlightCard
                 className="custom-spotlight-card"
                 spotlightColor="rgba(0, 229, 255, 0.2)"
