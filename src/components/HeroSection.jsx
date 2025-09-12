@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Button from './Button';
-import HireMe from './HireMe';
-import ProfileCard from './ProfileCard';
-import TextType from './TextType';
+import React from "react";
+import { motion } from "framer-motion";
+import Button from "./Button";
+import HireMe from "./HireMe";
+import ProfileCard from "./ProfileCard";
+import TextType from "./TextType";
 
 const HeroSection = () => {
   return (
@@ -21,7 +21,6 @@ const HeroSection = () => {
           handle="javicodes"
           status="Online"
           contactText="Contact Me"
-          avatarUrl="/path/to/avatar.jpg"
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={false}
