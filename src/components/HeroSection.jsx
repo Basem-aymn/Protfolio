@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
+import ArrowButton from "./ArrowButton";
 import HireMe from "./HireMe";
 import ProfileCard from "./ProfileCard";
 import TextType from "./TextType";
-
+import profileImage from "../assets/WhatsApp_Image_2025-09-13_at_2.14.38_AM-removebg-preview.png";
 const HeroSection = () => {
   return (
     <motion.div
@@ -14,17 +15,22 @@ const HeroSection = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      <div className="w-full md:w-[50%] h-[100%] px-10 pt-10 md:pt-0 flex justify-center md:justify-end items-center">
+      <div className="w-full md:w-[50%] h-[100%] px-10  md:pt-0 flex justify-center md:justify-end items-center">
         <ProfileCard
-          name="Javi A. Torres"
-          title="Software Engineer"
-          handle="javicodes"
+          name="Basem Aymn"
+          title="web developre"
+          handle="Basemcodes"
           status="Online"
           contactText="Contact Me"
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={false}
-          onContactClick={() => console.log("Contact clicked")}
+          onContactClick={() => {
+            const element = document.getElementById("consection");
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         />
       </div>
       <div className="w-full md:w-[50%] h-[100%] flex justify-center items-start pl-10 pt-10 md:pt-0 flex-col">
@@ -40,9 +46,19 @@ const HeroSection = () => {
           cursorCharacter="|"
           className="text-5xl text-blue-500"
         />
-        <Button />
+        <div className="flex items-center gap-4">
+          <Button />
+          <ArrowButton />
+        </div>
         <div className="mt-4">
-          <HireMe />
+          <HireMe
+            onClick={() => {
+              const element = document.getElementById("consection");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          />
         </div>
       </div>
     </motion.div>

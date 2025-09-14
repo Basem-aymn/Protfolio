@@ -1,15 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const HireMe = () => {
+const HireMe = ({ onClick }) => {
   return (
     <StyledWrapper>
-      <button className="button">
+      <button
+        className="button"
+        onClick={onClick}
+        type="button"
+        aria-label="Hire Me Button"
+      >
         Hire Me
       </button>
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   padding-top: 60px;
@@ -17,7 +22,7 @@ const StyledWrapper = styled.div`
   button {
     padding: 15px 60px;
     background: transparent;
-    border: 2px solid #6528F7;
+    border: 2px solid #6528f7;
     font-size: 15px;
     font-weight: bold;
     color: #ffffff;
@@ -41,7 +46,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     width: 0;
     height: 100%;
-    background: #6528F7;
+    background: #6528f7;
     top: 0;
     transform: skewX(35deg);
     transition: all 0.5s;
@@ -64,6 +69,7 @@ const StyledWrapper = styled.div`
   button:hover::before {
     width: 50%;
     right: 0;
-  }`;
+  }
+`;
 
 export default HireMe;
