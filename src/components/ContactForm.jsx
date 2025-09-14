@@ -1,30 +1,87 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useRef, useState } from "react";
+import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
+  const formRef = useRef(null);
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    emailjs
+      .sendForm(
+        "service_xxx", // Replace with your EmailJS service ID
+        "template_xxx", // Replace with your EmailJS template ID
+        formRef.current,
+        "user_xxx" // Replace with your EmailJS user/public key
+      )
+      .then(
+        (result) => {
+          setStatusMessage("Message sent successfully!");
+          e.target.reset();
+        },
+        (error) => {
+          setStatusMessage("Failed to send message. Please try again later.");
+        }
+      );
+  };
+
   return (
     <StyledWrapper>
-      <form className="form">
+      <form ref={formRef} className="form" onSubmit={sendEmail}>
         <div className="flex">
           <label>
-            <input required placeholder="" type="text" className="input" />
+            <input
+              name="firstName"
+              required
+              placeholder=""
+              type="text"
+              className="input"
+            />
             <span>first name</span>
           </label>
           <label>
-            <input required placeholder="" type="text" className="input" />
+            <input
+              name="lastName"
+              required
+              placeholder=""
+              type="text"
+              className="input"
+            />
             <span>last name</span>
           </label>
         </div>
         <label>
-          <input required placeholder="" type="email" className="input" />
+          <input
+            name="email"
+            required
+            placeholder=""
+            type="email"
+            className="input"
+          />
           <span>email</span>
         </label>
         <label>
-          <input required type="tel" placeholder="" className="input" />
+          <input
+            name="phone"
+            required
+            type="tel"
+            placeholder=""
+            className="input"
+          />
           <span>contact number</span>
         </label>
         <label>
-          <textarea required rows={3} placeholder="" className="input01" defaultValue={""} />
+          <textarea
+            name="message"
+            required
+            rows={3}
+            placeholder=""
+            className="input01"
+            defaultValue={""}
+          />
           <span>message</span>
         </label>
         <button className="fancy" type="submit">
@@ -34,9 +91,10 @@ const ContactForm = () => {
           <span className="bottom-key-2" />
         </button>
       </form>
+      {statusMessage && <p className="message">{statusMessage}</p>}
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   .form {
@@ -88,7 +146,8 @@ const StyledWrapper = styled.div`
     font-size: 0.9em;
   }
 
-  .form label .input:focus + span,.form label .input:valid + span {
+  .form label .input:focus + span,
+  .form label .input:valid + span {
     top: 30px;
     font-size: 0.7em;
     font-weight: 600;
@@ -121,7 +180,8 @@ const StyledWrapper = styled.div`
     font-size: 0.9em;
   }
 
-  .form label .input01:focus + span,.form label .input01:valid + span {
+  .form label .input01:focus + span,
+  .form label .input01:valid + span {
     top: 50px;
     font-size: 0.7em;
     font-weight: 600;
@@ -232,9 +292,10 @@ const StyledWrapper = styled.div`
   }
 
   .fancy:hover .bottom-key-1,
-   .fancy:hover .bottom-key-2 {
+  .fancy:hover .bottom-key-2 {
     right: 0;
     width: 0;
-  }`;
+  }
+`;
 
 export default ContactForm;
