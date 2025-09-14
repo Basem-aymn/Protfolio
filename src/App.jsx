@@ -7,6 +7,7 @@ import SecSection from "./components/SecSection";
 import ProSection from "./components/ProSection";
 import ConSection from "./components/ConSection";
 import BackToTopButton from "./components/BackToTopButton";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             { label: "Home", href: "#hero" },
             { label: "About", href: "/about" },
             { label: "Skills", href: "#skills" },
-            { label: "Contact", href: "/contact" },
+            { label: "Projects", href: "#projects" },
           ]}
           activeHref="/"
           className="custom-nav"
@@ -132,6 +133,7 @@ function App() {
         <ConSection />
       </motion.div>
       <BackToTopButton />
+      <Footer />
     </div>
   );
 }
