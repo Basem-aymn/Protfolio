@@ -15,24 +15,39 @@ const ContactForm = () => {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      // Fallback: open user's email client with prefilled message
+      // Fallback: Send via FormSubmit without needing user email client
       try {
         const form = new FormData(formRef.current);
-        const firstName = encodeURIComponent(form.get('firstName') || '');
-        const lastName = encodeURIComponent(form.get('lastName') || '');
-        const email = encodeURIComponent(form.get('email') || '');
-        const phone = encodeURIComponent(form.get('phone') || '');
-        const message = encodeURIComponent(form.get('message') || '');
+        const payload = {
+          firstName: form.get('firstName') || '',
+          lastName: form.get('lastName') || '',
+          email: form.get('email') || '',
+          phone: form.get('phone') || '',
+          message: form.get('message') || '',
+          _subject: `New contact from ${form.get('firstName') || ''} ${form.get('lastName') || ''}`,
+          _captcha: false
+        };
 
-        const subject = encodeURIComponent(`New contact from ${firstName} ${lastName}`);
-        const body = encodeURIComponent(
-          `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
-        );
-
-        window.location.href = `mailto:basemaymn6@gmail.com?subject=${subject}&body=${body}`;
-        setStatusMessage("Opening your email client to send the message...");
+        fetch('https://formsubmit.co/ajax/basemaymn6@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(async (res) => {
+            if (!res.ok) throw new Error('Request failed');
+            const data = await res.json();
+            if (data.success === 'true' || data.success === true) {
+              setStatusMessage('Message sent successfully!');
+              e.target.reset();
+            } else {
+              throw new Error('FormSubmit error');
+            }
+          })
+          .catch(() => {
+            setStatusMessage('Failed to send message. Please try again later.');
+          });
       } catch {
-        setStatusMessage("Email service not configured. Please set EmailJS keys.");
+        setStatusMessage('Failed to send message. Please try again later.');
       }
       return;
     }
