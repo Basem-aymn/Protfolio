@@ -27,6 +27,7 @@ function App() {
           pillColor="#ffffff"
           hoveredPillTextColor="#ffffff"
           pillTextColor="#000000"
+         
         />
       </div>
       <div id="hero">

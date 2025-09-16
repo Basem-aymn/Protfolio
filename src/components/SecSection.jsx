@@ -8,7 +8,7 @@ const SecSection = () => {
   return (
     <motion.div
       id="about-section"
-      className="mx-auto mt-8 p-4 md:p-0 flex flex-col md:flex-row flex-wrap h-auto md:h-[80vh] w-[90%] md:w-[70%]"
+      className="mx-auto mt-8 p-4 md:p-0 flex flex-col md:flex-row flex-wrap h-auto md:h-[800px] w-[90%] md:w-[70%]"
       style={{
         boxShadow: "0 10px 20px rgba(0, 193, 255, 0.3)",
         borderRadius: "8px",
@@ -61,7 +61,7 @@ const SecSection = () => {
               useOriginalCharsOnly={true}
               revealDirection="start"
               speed={10}
-              maxIterations={10}
+              maxIterations={6}
               className=""
               encryptedClassName="text-gray-500"
             />
@@ -74,7 +74,7 @@ const SecSection = () => {
               useOriginalCharsOnly={true}
               revealDirection="start"
               speed={10}
-              maxIterations={10}
+              maxIterations={6}
               className=""
               encryptedClassName="text-gray-500"
             />

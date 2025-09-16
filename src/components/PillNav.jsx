@@ -12,7 +12,7 @@ const PillNav = ({
   hoveredPillTextColor = '#060010',
   pillTextColor,
   onMobileMenuClick,
-  initialLoadAnimation = true
+  initialLoadAnimation = false
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -101,10 +101,10 @@ const PillNav = ({
       const navItems = navItemsRef.current;
 
       if (navItems) {
-        gsap.set(navItems, { width: 0, overflow: 'hidden' });
+        gsap.set(navItems, { opacity: 0 });
         gsap.to(navItems, {
-          width: 'auto',
-          duration: 0.6,
+          opacity: 1,
+          duration: 0.4,
           ease
         });
       }
@@ -157,6 +157,8 @@ const PillNav = ({
 
     if (menu) {
       if (newState) {
+        // Prevent background scroll/jumps when mobile menu is open
+        try { document.body.style.overflow = 'hidden'; } catch {}
         gsap.set(menu, { visibility: 'visible' });
         gsap.fromTo(
           menu,
@@ -180,6 +182,7 @@ const PillNav = ({
           transformOrigin: 'top center',
           onComplete: () => {
             gsap.set(menu, { visibility: 'hidden' });
+            try { document.body.style.overflow = ''; } catch {}
           }
         });
       }
