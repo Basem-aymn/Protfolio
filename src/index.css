@@ -9,6 +9,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* منع المتصفح من تعديل موضع التمرير تلقائياً (scroll anchoring) الذي يسبب قفزات بسيطة */
+html, body {
+  overflow-anchor: none;
+}
 :root {
   --pointer-x: 50%;
   --pointer-y: 50%;
@@ -458,6 +463,11 @@ html {
     max-height: 450px;
   }
 
+  /* ضبط حجم صورة الكارت على التابلت/الموبايل الكبير */
+  .pc-avatar-content .avatar {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
   .pc-details {
     top: 2em;
   }
@@ -532,8 +542,9 @@ html {
     height: 16px;
   }
 
+  /* تصغير أوضح على الموبايل */
   .pc-avatar-content .avatar {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .pc-user-details {
@@ -595,5 +606,9 @@ html {
     padding: 4px 8px;
     font-size: 9px;
     border-radius: 50px;
+  }
+  /* أصغر الأجهزة */
+  .pc-avatar-content .avatar {
+    transform: translate(-50%, -50%) scale(0.65);
   }
 }

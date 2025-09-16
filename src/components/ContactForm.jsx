@@ -10,13 +10,35 @@ const ContactForm = () => {
     e.preventDefault();
     if (!formRef.current) return;
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      // Fallback: open user's email client with prefilled message
+      try {
+        const form = new FormData(formRef.current);
+        const firstName = encodeURIComponent(form.get('firstName') || '');
+        const lastName = encodeURIComponent(form.get('lastName') || '');
+        const email = encodeURIComponent(form.get('email') || '');
+        const phone = encodeURIComponent(form.get('phone') || '');
+        const message = encodeURIComponent(form.get('message') || '');
+
+        const subject = encodeURIComponent(`New contact from ${firstName} ${lastName}`);
+        const body = encodeURIComponent(
+          `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+        );
+
+        window.location.href = `mailto:basemaymn6@gmail.com?subject=${subject}&body=${body}`;
+        setStatusMessage("Opening your email client to send the message...");
+      } catch {
+        setStatusMessage("Email service not configured. Please set EmailJS keys.");
+      }
+      return;
+    }
+
     emailjs
-      .sendForm(
-        "service_xxx", // Replace with your EmailJS service ID
-        "template_xxx", // Replace with your EmailJS template ID
-        formRef.current,
-        "user_xxx" // Replace with your EmailJS user/public key
-      )
+      .sendForm(serviceId, templateId, formRef.current, publicKey)
       .then(
         (result) => {
           setStatusMessage("Message sent successfully!");
@@ -31,6 +53,8 @@ const ContactForm = () => {
   return (
     <StyledWrapper>
       <form ref={formRef} className="form" onSubmit={sendEmail}>
+        {/* Ensure the email is sent to this recipient via EmailJS template variable */}
+        <input type="hidden" name="to_email" value="basemaymn6@gmail.com" />
         <div className="flex">
           <label>
             <input
