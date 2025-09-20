@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ChromaGrid from './ChromaGrid';
+import ChromaGrid from "./ChromaGrid";
 
 const ProSection = () => {
   return (
@@ -10,48 +10,47 @@ const ProSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
-      >
+    >
       <h1
         className="text-center text-3xl text-white mb-4"
         style={{ fontFamily: '"Fugaz One", sans-serif' }}
       >
         Projects
       </h1>
-      <div style={{ height: 'auto', position: 'relative' , width: '60%' }}>
+      <div style={{ height: "auto", position: "relative", width: "60%" }}>
         <ChromaGrid
-          className="flex justify-between"
+          className="flex justify-between "
           items={[
             {
               image: "/screenshot-2025-09-10-195336.png",
               title: "Sarah Johnson",
               subtitle: "Frontend Developer",
-              handle: "@sarahjohnson",
+              handle: "@BASEM AYMN",
               borderColor: "#3B82F6",
               gradient: "linear-gradient(145deg, #3B82F6, #000)",
               url: "https://demo-1-cfwn.vercel.app",
-              imageClass: "w-[400px] h-[250px] object-cover"
+              imageClass: "w-[400px] h-[250px] object-cover",
             },
             {
-              image: "https://i.pravatar.cc/300?img=2",
-              title: "Mike Chen",
-              subtitle: "Backend Engineer",
-              handle: "@mikechen",
+              image: "/src/assets/Screenshot 2025-09-20 152902.png",
+              title: "TO DO LIST",
+              subtitle: "TO DO LIST APP ",
+              handle: "@BASEM AYMN",
               borderColor: "#10B981",
               gradient: "linear-gradient(180deg, #10B981, #000)",
-              url: "https://linkedin.com/in/mikechen"
+              url: "https://to-do-list-ochre-alpha-28.vercel.app/",
+              imageClass: "w-[400px] h-[250px] object-cover",
             },
             {
               image: "https://i.pravatar.cc/300?img=3",
               title: "Alex Smith",
               subtitle: "Full Stack Developer",
-              handle: "@alexsmith",
+              handle: "@BASEM AYMN",
               borderColor: "#F59E0B",
               gradient: "linear-gradient(165deg, #F59E0B, #000)",
-              url: "https://github.com/alexsmith"
+              url: "https://github.com/alexsmith",
+              imageClass: "w-[400px] h-[250px] object-cover",
             },
-          
-          
-          
           ]}
           radius={300}
           damping={0.45}
