@@ -42,13 +42,13 @@ const ProSection = () => {
               imageClass: "w-[400px] h-[250px] object-cover",
             },
             {
-              image: "https://i.pravatar.cc/300?img=3",
-              title: "Alex Smith",
-              subtitle: "Full Stack Developer",
+              image: "/src/assets/Screenshot 2025-09-29 181236.png",
+              title: "Taxi website",
+              subtitle: "Taxi website",
               handle: "@BASEM AYMN",
               borderColor: "#F59E0B",
               gradient: "linear-gradient(165deg, #F59E0B, #000)",
-              url: "https://github.com/alexsmith",
+              url: "https://repo-delta-eight.vercel.app/",
               imageClass: "w-[400px] h-[250px] object-cover",
             },
           ]}
