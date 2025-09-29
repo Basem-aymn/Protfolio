@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ChromaGrid from "./ChromaGrid";
-import todoImage from "../assets/Screenshot 2025-09-20 152902.png";
-import taxiImage from "../assets/Screenshot 2025-09-29 181236.png";
 
 const ProSection = () => {
   return (
@@ -34,7 +32,7 @@ const ProSection = () => {
               imageClass: "w-[400px] h-[250px] object-cover",
             },
             {
-              image: todoImage,
+              image: "/images/Screenshot 2025-09-20 152902.png",
               title: "TO DO LIST",
               subtitle: "TO DO LIST APP ",
               handle: "@BASEM AYMN",
@@ -44,7 +42,7 @@ const ProSection = () => {
               imageClass: "w-[400px] h-[250px] object-cover",
             },
             {
-              image: taxiImage,
+              image: "/images/Screenshot 2025-09-29 181236.png",
               title: "Taxi website",
               subtitle: "Taxi website",
               handle: "@BASEM AYMN",
