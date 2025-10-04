@@ -22,13 +22,13 @@ const ProSection = () => {
           className="flex justify-between "
           items={[
             {
-              image: "/screenshot-2025-09-10-195336.png",
-              title: "Sarah Johnson",
-              subtitle: "Frontend Developer",
+              image: "/Screenshot 2025-10-04 061053.png",
+              title: "landing page",
+              subtitle: "landing page   ",
               handle: "@BASEM AYMN",
               borderColor: "#3B82F6",
               gradient: "linear-gradient(145deg, #3B82F6, #000)",
-              url: "https://demo-1-cfwn.vercel.app",
+              url: "https://landing-page-1-two-pi.vercel.app",
               imageClass: "w-[400px] h-[250px] object-cover",
             },
             {

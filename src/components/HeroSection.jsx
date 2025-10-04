@@ -39,7 +39,7 @@ const HeroSection = () => {
           Bassem <span className="text-blue-500">Ayman</span>
         </p>
         <TextType
-          text={["web developer", "frontend expert"]}
+          text={["web developre", "frontend expert"]}
           typingSpeed={75}
           pauseDuration={1500}
           showCursor={true}
